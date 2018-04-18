@@ -48,7 +48,8 @@
     var enjoysScubaDiving = true
     ```
 ## Parameters:
-> `func move(from *start*: Point, to *end*: Point)`
+> func move(from *start*: Point, to *end*: Point)
+
 - **Write documention for each Parameter, Throws, and Returns**.
 
     ```swift
