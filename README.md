@@ -359,6 +359,7 @@ extension SomeOtherClass: UIViewController {
     
     ### Typealiases
     - Create `typealiases` to give semantic meaning to commonly used datatypes and closures.
+    
         ```swift
         typealias IndexRange = Range<Int>
         typealias JSONObject = [String: AnyObject]
@@ -366,7 +367,102 @@ extension SomeOtherClass: UIViewController {
         typealias BasicBlock = () -> Void
         ```
     
+    ### Switch Statements
+    - Use multiple values on a single `case` where it is appropriate:
     
+        ```swift
+        var someCharacter: Character
+        ...
+        
+        switch someCharacter {
+        case "a", "e", "i", "o", "u":
+            print("\(someCharacter) is a vowel")
+        ...
+        }
+        ```
+        
+    ### Loops
+    - Use the `enumerated()` function if you need to loop over a Sequence and use the index:
+    
+        ```swift
+        for (index, element) in someArray.enumerated() {
+            ...
+        }
+        ```
+    - Use `map` when transforming Arrays (`flatMap` for Arrays of Optionals or Arrays of Arrays):
+        ```swift
+        let array = [1, 2, 3, 4, 5]
+        let stringArray = array.map { item in
+            return "item \(item)"
+        }
+
+        let optionalArray: [Int?] = [1, nil, 3, 4, nil]
+        let nonOptionalArray = optionalArray.flatMap { item -> Int? in
+            guard let item = item else {
+                return nil
+            }
+
+            return item * 2
+        }
+
+        let arrayOfArrays = [array, nonOptionalArray]
+        let anotherStringArray = arrayOfArrays.flatmap { item in
+            return "thing \(item)"
+        }
+        ```
+    - If you have an Array of Arrays and want to loop over all contents, consider a `for in` loop using `joined(separator:)` instead of nested loops:
+        ```swift
+        let arraysOfNames = [["Moe", "Larry", "Curly"], ["Groucho", "Chico", "Harpo", "Zeppo"]]
+        ```
+        **Recommended**
+        ```swift
+        for name in arraysOfNames.joined() {
+            print("\(name) is an old-timey comedian")
+        }
+        ```
+        **Discouraged**
+        ```swift
+        for names in arraysOfNames {
+            for name in names {
+                print("\(name) is an old-timey comedian")
+            }
+        }
+        ```
+    
+    ### Closures
+    - **Trailing Closure Syntax**
+        - Use trailing closure syntax when the only or last argument to a function or method is a closure.
+        
+            ```swift
+            //a function that has a completion closure/block
+            func registerUser(user: User, completion: (Result) -> Void)
+            ```
+            **Incorrect**
+            ```swift
+            UserAPI.registerUser(user, completion: { result in
+                if result.success {
+                    ...
+                }
+            })
+            ```
+            **Correct**
+            ```swift
+            UserAPI.registerUser(user) { result in
+                if result.success {
+                    ...
+                }
+            }
+            ```
+        - Omit the empty parens () when the only argument is a closure.
+        
+            **Incorrect**
+            ```swift
+            let doubled = [2, 3, 4].map() { $0 * 2 }
+            ```
+            **Correct**
+            ```swift
+            let doubled = [2, 3, 4].map { $0 * 2 }
+            ```
     
     
 ## Resources:
