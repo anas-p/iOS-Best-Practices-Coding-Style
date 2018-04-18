@@ -356,7 +356,19 @@ extension SomeOtherClass: UIViewController {
             "key2": value2,
         ]
         ```
-        
+    
+    ### Typealiases
+    - Create `typealiases` to give semantic meaning to commonly used datatypes and closures.
+        ```swift
+        typealias IndexRange = Range<Int>
+        typealias JSONObject = [String: AnyObject]
+        typealias APICompletion = (jsonResult: [JSONObject]?, error: NSError?) -> Void
+        typealias BasicBlock = () -> Void
+        ```
+    
+    
+    
+    
 ## Resources:
 
 - [Swift.org -  API Design Guidelines](https://swift.org/documentation/api-design-guidelines/)
