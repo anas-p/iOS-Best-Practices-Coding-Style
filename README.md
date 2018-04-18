@@ -81,7 +81,7 @@ Documentation for the class/file
 import SomeExternalFramework
 
 //MARK: Protocols declarations
-//Protocol name should be ends with protocol purpose
+//Protocol name should be end purpose of protocol
 //ex: FooDelegate , FooDataSource
 protocol ProtocolNameDelegate {
     func foo(param1: String, param2: Bool)
