@@ -186,12 +186,9 @@ extension SomeOtherClass: UIViewController {
                 print(error)
             }
             ```
-            
-            
     - **Let vs. Var**
         - Whenever possible use let instead of var.
         - Declare properties of an **object** or **struct** that shouldn't change over its lifetime with `let`.
-        
         
     - **Access Control**
         - Prefer `private` properties and methods whenever possible to encapsulate and limit access to internal object state.
@@ -286,6 +283,8 @@ extension SomeOtherClass: UIViewController {
                 // Scroll view delegate methods
             }
             ```
+            
+- **Delegate Protocols**
     
         
         
