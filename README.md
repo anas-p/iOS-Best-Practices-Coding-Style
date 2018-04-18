@@ -142,8 +142,8 @@ extension SomeOtherClass: UIViewController {
 }
 ```
 
-## Must Follow:
-### 1. Native Swift Types 
+# Must Follow:
+## 1. Native Swift Types 
 - Use Swift types whenever possible (Array, Dictionary, Set, String, etc.) as opposed to the NS* types from Objective-C
 
     **Incorrect**
@@ -166,10 +166,10 @@ extension SomeOtherClass: UIViewController {
     let names: AnyObject? = (arrayOfJSONObjects as NSArray).value(forKeyPath: "name")
     ```
     
-### 2. Avoid force unwrapping optionals
+## 2. Avoid force unwrapping optionals
 - Avoid force unwrapping optionals by using `!` or `as!` as this will cause app to crash if the value trying to use is `nil`. Safely unwrap the optional first by using things like `guard let`, `if let`, `guard let as?`, `if let as?`, and optional chaining.
 
-### 3. Error Handling:
+## 3. Error Handling:
 - **Forced-try Expression**
     - **Avoid using the forced-try expression**: `try!`
         **Incorrect**
@@ -217,7 +217,7 @@ extension SomeOtherClass: UIViewController {
             ```
         - If you need to expose functionality to other modules, prefer `public` classes and class members whenever possible to ensure functionality is not accidentally overridden. Better to expose the class to `open` for subclassing when needed.
         
-### 4. Spacing
+## 4. Spacing
 - Open curly braces on the same line as the statement and close on a new line.
 - Put `else` statements on the same line as the closing brace of the previous `if` block.
 - Make all colons left-hugging (no space before but a space after) except when used with the ternary operator (a space both before and after).
@@ -257,7 +257,7 @@ extension SomeOtherClass: UIViewController {
         }
     }
     ```
-### 5. Protocols
+## 5. Protocols
 - **Protocol Conformance**
     - When adding protocol conformance to a type, use a separate extension for the protocol methods. This keeps the related methods grouped together with the protocol and can simplify instructions to add a protocol to a type with its associated methods.
     - Use a `// MARK: - SomeDelegate` comment to keep things well organized.
@@ -315,7 +315,7 @@ extension SomeOtherClass: UIViewController {
             }
         }
         ```
-### 6. Arrays and Dictionaries
+## 6. Arrays and Dictionaries
 - **Type Shorthand Syntax**
     Use square bracket shorthand type syntax for Array and Dictionary as recommended by Apple in [Array Type Shorthand Syntax](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/CollectionTypes.html#//apple_ref/doc/uid/TP40014097-CH8-ID107):
         
@@ -356,7 +356,7 @@ extension SomeOtherClass: UIViewController {
     ]
     ```
     
-### 7. Typealiases
+## 7. Typealiases
 - Create `typealiases` to give semantic meaning to commonly used datatypes and closures.
     
     ```swift
@@ -366,7 +366,7 @@ extension SomeOtherClass: UIViewController {
     typealias BasicBlock = () -> Void
     ```
     
-### 8. Switch Statements
+## 8. Switch Statements
 - Use multiple values on a single `case` where it is appropriate:
     
     ```swift
@@ -380,7 +380,7 @@ extension SomeOtherClass: UIViewController {
     }
     ```
         
-### 9. Loops
+## 9. Loops
 - Use the `enumerated()` function if you need to loop over a Sequence and use the index:
     
     ```swift
@@ -428,7 +428,7 @@ extension SomeOtherClass: UIViewController {
     }
     ```
     
-### 10. Closures
+## 10. Closures
 - **Trailing Closure Syntax**
     - Use trailing closure syntax when the only or last argument to a function or method is a closure.
         
@@ -463,7 +463,7 @@ extension SomeOtherClass: UIViewController {
         let doubled = [2, 3, 4].map { $0 * 2 }
         ```
             
-### 11. Constants
+## 11. Constants
 - Prefer declaring constants outside the scope of a class to give them static storage.
 - When creating a shared constants file (ex. Constants.swift), use `struct`s to group related constants together. The name of the `struct` should be singular, and each field should be written using camelCase.
 - Be wary of large constants files as they can become unmanageable over time. Refactor related parts of the main constants file into separate files for that situation.
@@ -507,7 +507,7 @@ extension SomeOtherClass: UIViewController {
     print(mutableURLRequest.httpMethod) // "POST"
     ```
     
-### 12. Classes vs Structs
+## 12. Classes vs Structs
 - Most of your custom data types should be classes.
 - Some situations where you may want to use `struct`s:
     - When creating simple, lightweight data types.
@@ -515,7 +515,7 @@ extension SomeOtherClass: UIViewController {
     - When you don't need inheritance.
 - Refer to the [Swift Programming Language Guidlines](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/ClassesAndStructures.html#//apple_ref/doc/uid/TP40014097-CH13-ID82) for detailed info on this topic.
     
-### 13. Tips & Tricks
+## 13. Tips & Tricks
 - To align code in Xcode, select the block of code you want to Align and then press `ctrl` + `i`.
     
     
