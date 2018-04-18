@@ -87,7 +87,7 @@ protocol ProtocolNameDelegate {
     func foo(param1: String, param2: Bool)
 }
 
-class FooViewController : UIViewController, UITableViewDeleagte, UITableViewDatasource {
+class MyViewcontroller : UIViewController{
 
     //MARK: Delegate initialization
     var delegate: ProtocolNameDelegate?
@@ -114,22 +114,23 @@ class FooViewController : UIViewController, UITableViewDeleagte, UITableViewData
     func foobarButtonTapped() {
         // ...
     }
-
-    // MARK: UITableView Datasource
-    func foobar(foobar: Foobar, SomethingWithFoo foo: Foo) {
-        // ...
-    }
-
-    // MARK: UITableView Delegate
-    func foobar(foobar: Foobar, didSomethingWithFoo foo: Foo) {
-        // ...
-    }
     
     // MARK: Additional Helpers
     private func displayNameForFoo(foo: Foo) {
         // ...
     }
 }
+
+// MARK: - UITableViewDataSource
+extension MyViewcontroller: UITableViewDataSource {
+  // Table view data source methods
+}
+
+// MARK: - UIScrollViewDelegate
+extension MyViewcontroller: UIScrollViewDelegate {
+  // Scroll view delegate methods
+}
+
 //MARK: Extension - Name of extension class
 /**
  - Documentation for purpose of extension
@@ -167,7 +168,7 @@ extension SomeOtherClass: UIViewController {
 - **Avoid force unwrapping optionals** by using `!` or `as!` as this will cause app to crash if the value trying to use is `nil`. Safely unwrap the optional first by using things like `guard let`, `if let`, `guard let as?`, `if let as?`, and optional chaining.
 
     ### Error Handling:
-    - **Forced-try Expression**:
+    - **Forced-try Expression**
         - **Avoid using the forced-try expression**: `try!`
         
             **Incorrect**
@@ -185,12 +186,17 @@ extension SomeOtherClass: UIViewController {
                 print(error)
             }
             ```
+            
+            
     - **Let vs. Var**
         - Whenever possible use let instead of var.
         - Declare properties of an **object** or **struct** that shouldn't change over its lifetime with `let`.
+        
+        
     - **Access Control**
         - Prefer `private` properties and methods whenever possible to encapsulate and limit access to internal object state.
         - For `private` declarations at the top level of a file that are outside of a type, explicitly specify the declaration as `fileprivate`. This is functionally the same as marking these declarations private, but clarifies the scope:
+        
             **Incorrect**
             ```swift
             import Foundation
@@ -212,47 +218,75 @@ extension SomeOtherClass: UIViewController {
             ...
             ```
         - If you need to expose functionality to other modules, prefer `public` classes and class members whenever possible to ensure functionality is not accidentally overridden. Better to expose the class to `open` for subclassing when needed.
-    - **Spacing**
-        - Open curly braces on the same line as the statement and close on a new line.
-        - Put `else` statements on the same line as the closing brace of the previous `if` block.
-        - Make all colons left-hugging (no space before but a space after) except when used with the ternary operator (a space both before and after).
+        
+    ### Spacing
+    - Open curly braces on the same line as the statement and close on a new line.
+    - Put `else` statements on the same line as the closing brace of the previous `if` block.
+    - Make all colons left-hugging (no space before but a space after) except when used with the ternary operator (a space both before and after).
+        
+         **Incorrect**
+        ```swift
+        class SomeClass : SomeSuperClass
+        {
+            private let someString:String
+
+            func someFunction(someParam :Int)
+            {
+                let dictionaryLiteral : [String : AnyObject] = ["foo" : "bar"]
+
+                let ternary = (someParam > 10) ? "foo": "bar"
+
+                if someParam > 10 { ... }
+
+                else {
+                        ...
+                } } }
+        ```
+        **Correct**
+        ```swift
+        class SomeClass: SomeSuperClass {
+            private let someString: String
+            func someFunction(someParam: Int) {
+                let dictionaryLiteral: [String: AnyObject] = ["foo": "bar"]
+
+                let ternary = (someParam > 10) ? "foo" : "bar"
+
+                if someParam > 10 {
+                    ...
+                } else {
+                    ...
+                }
+            }
+        }
+        ```
+    ### Protocols
+    - **Protocol Conformance**
+        - When adding protocol conformance to a type, use a separate extension for the protocol methods. This keeps the related methods grouped together with the protocol and can simplify instructions to add a protocol to a type with its associated methods.
+        - Use a `// MARK: - SomeDelegate` comment to keep things well organized.
         
             **Incorrect**
             ```swift
-            class SomeClass : SomeSuperClass
-            {
-                private let someString:String
-
-                func someFunction(someParam :Int)
-                {
-                    let dictionaryLiteral : [String : AnyObject] = ["foo" : "bar"]
-
-                    let ternary = (someParam > 10) ? "foo": "bar"
-
-                    if someParam > 10 { ... }
-
-                    else {
-                            ...
-                    } } }
+            class MyViewcontroller: UIViewController, UITableViewDataSource, UIScrollViewDelegate {
+                // All methods
+            }
             ```
             **Correct**
             ```swift
-            class SomeClass: SomeSuperClass {
-                private let someString: String
+            class MyViewcontroller: UIViewController {
+                ...
+            }
 
-                func someFunction(someParam: Int) {
-                    let dictionaryLiteral: [String: AnyObject] = ["foo": "bar"]
+            // MARK: - UITableViewDataSource
+            extension MyViewcontroller: UITableViewDataSource {
+                // Table view data source methods
+            }
 
-                    let ternary = (someParam > 10) ? "foo" : "bar"
-
-                    if someParam > 10 {
-                        ...
-                    } else {
-                        ...
-                    }
-                }
+            // MARK: - UIScrollViewDelegate
+            extension MyViewcontroller: UIScrollViewDelegate {
+                // Scroll view delegate methods
             }
             ```
+    
         
         
 ## Resources:
