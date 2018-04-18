@@ -284,9 +284,76 @@ extension SomeOtherClass: UIViewController {
             }
             ```
             
-- **Delegate Protocols**
+    - **Delegate Protocols**
+        - If your protocol should have **optional methods**, it must be declared with the `@objc` attribute.
+        - Declare protocol definitions near the class that uses the delegate, not the class that implements the delegate methods.
+        - If more than one class uses the same protocol, declare it in its own file.
+        - Use `weak` optional `var`s for delegate variables to avoid retain cycles.
     
+        ```swift
+        //SomeTableCell.swift
+        protocol SomeTableCellDelegate: class {
+            func cellButtonWasTapped(cell: SomeTableCell)
+        }
+
+        class SomeTableCell: UITableViewCell {
+            weak var delegate: SomeTableCellDelegate?
+            // ...
+        }
+        ```
+        ```swift
+        //SomeTableViewController.swift
+        class SomeTableViewController: UITableViewController {
+            // ...
+        }
+
+        // MARK: - SomeTableCellDelegate
+        extension SomeTableViewController: SomeTableCellDelegate {
+            func cellButtonWasTapped(cell: SomeTableCell) {
+                // Implementation of cellbuttonwasTapped method
+            }
+        }
+        ```
+    ### Arrays and Dictionaries
+    - **Type Shorthand Syntax**
+    Use square bracket shorthand type syntax for Array and Dictionary as recommended by Apple in [Array Type Shorthand Syntax](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/CollectionTypes.html#//apple_ref/doc/uid/TP40014097-CH8-ID107):
         
+        **Incorrect**
+        ```swift
+        let users: Array<String>
+        let usersByName: Dictionary<String, User>
+        ```
+        **Correct**
+        ```swift
+        let users: [String]
+        let usersByName: [String: User]
+        ```
+    - **Trailing Comma**
+    For array and dictionary literals, unless the literal is very short, split it into multiple lines, with the opening symbols on their own line, each item or key-value pair on its own line, and the closing symbol on its own line. Put a trailing comma after the last item or key-value pair to facilitate future insertion/editing. Xcode will handle alignment sanely.
+    
+        **Incorrect**
+        ```swift
+        let anArray = [
+            object1,
+            object2,
+            object3 //no trailing comma
+        ]
+
+        let aDictionary = ["key1": value1, "key2": value2] //how can you even read that?!
+        ```
+        **Correct**
+        ```swift
+        let anArray = [
+            object1,
+            object2,
+            object3,
+        ]
+
+        let aDictionary = [
+            "key1": value1,
+            "key2": value2,
+        ]
+        ```
         
 ## Resources:
 
@@ -297,5 +364,4 @@ extension SomeOtherClass: UIViewController {
 - [RW - Swift Style Guide](https://github.com/anasamanp/swift-style-guide)
 
 
-    
     
