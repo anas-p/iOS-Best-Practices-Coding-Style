@@ -289,32 +289,31 @@ extension SomeOtherClass: UIViewController {
         - Declare protocol definitions near the class that uses the delegate, not the class that implements the delegate methods.
         - If more than one class uses the same protocol, declare it in its own file.
         - Use `weak` optional `var`s for delegate variables to avoid retain cycles.
-        
     
-        ```swift
-        //SomeTableCell.swift
-        protocol SomeTableCellDelegate: class {
-            func cellButtonWasTapped(cell: SomeTableCell)
-        }
-
-        class SomeTableCell: UITableViewCell {
-            weak var delegate: SomeTableCellDelegate?
-            // ...
-        }
-        ```
-        ```swift
-        //SomeTableViewController.swift
-        class SomeTableViewController: UITableViewController {
-            // ...
-        }
-
-        // MARK: - SomeTableCellDelegate
-        extension SomeTableViewController: SomeTableCellDelegate {
-            func cellButtonWasTapped(cell: SomeTableCell) {
-                // Implementation of cellbuttonwasTapped method
+            ```swift
+            //SomeTableCell.swift
+            protocol SomeTableCellDelegate: class {
+                func cellButtonWasTapped(cell: SomeTableCell)
             }
-        }
-        ```
+
+            class SomeTableCell: UITableViewCell {
+                weak var delegate: SomeTableCellDelegate?
+                // ...
+            }
+            ```
+            ```swift
+            //SomeTableViewController.swift
+            class SomeTableViewController: UITableViewController {
+                // ...
+            }
+
+            // MARK: - SomeTableCellDelegate
+            extension SomeTableViewController: SomeTableCellDelegate {
+                func cellButtonWasTapped(cell: SomeTableCell) {
+                    // Implementation of cellbuttonwasTapped method
+                }
+            }
+            ```
     ### Arrays and Dictionaries
     - **Type Shorthand Syntax**
     
@@ -530,4 +529,4 @@ extension SomeOtherClass: UIViewController {
 
 
     
-  
+    
