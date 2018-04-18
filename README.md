@@ -5,6 +5,7 @@
     - Use Swift’s [dialect of Markdown](https://developer.apple.com/library/content/documentation/Xcode/Reference/xcode_markup_formatting_ref/) for documentation.
     - [Reference for inline documentation](http://nshipster.com/swift-documentation/).
     - **Begin with a summary** that describes the entity being declared. Often, an API can be completely understood from its declaration and its summary.
+    
          ```swift
         /// Returns a 'view' of 'self' containing the same elements in
         /// reverse order.
@@ -19,6 +20,7 @@
 - **Include all the words needed to avoid ambiguity** for a person reading code where the name is used.
 - **Name variables, parameters, and associated types according to their roles**, rather than their type constraints.
 - **Make the name descriptive**.
+
     **Incorrect**
     ```swift
     var string = "Hello" 
@@ -29,6 +31,7 @@
     ```
 ## Conventions:
 - **Follow case conventions**. Names of types and protocols are `UpperCamelCase`. Everything else is `lowerCamelCase`.
+
     ```swift
     var utf8Bytes: [UTF8.CodeUnit]
     var isRepresentableAsASCII = true
@@ -41,6 +44,7 @@
 ## Parameters:
 > `func move(from *start*: Point, to *end*: Point)`
 - **Write documention for each Parameter, Throws, and Returns**.
+
     ```swift
     /**
     Repeats a string `times` times.
