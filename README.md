@@ -141,13 +141,58 @@ extension SomeOtherClass: UIViewController {
 }
 ```
 
+## Must Follow:
+- **Native Swift Types** - Use Swift types whenever possible (Array, Dictionary, Set, String, etc.) as opposed to the NS* types from Objective-C
+
+    **Incorrect**
+    ```swift
+    let pageLabelText = NSString(format: "%@/%@", currentPage, pageCount)
+    
+    //Do not make NSArray, NSDictionary, and NSSet properties or variables
+    var arrayOfJSONObjects: NSArray = NSArray()
+    ...
+    let names: AnyObject? = arrayOfJSONObjects.value(forKeyPath: "name")
+    ```
+    **Correct**
+    ```swift
+    let pageLabelText = "\(currentPage)/\(pageCount)"
+    let alsoPageLabelText = currentPage + "/" + pageCount
+    
+    //cast Swift type in order to use objectice-C method.
+    var arrayOfJSONObjects = [[String: AnyObject]]()
+    ...
+    let names: AnyObject? = (arrayOfJSONObjects as NSArray).value(forKeyPath: "name")
+    ```
+    
+- **Avoid force unwrapping optionals** by using `!` or `as!` as this will cause app to crash if the value trying to use is `nil`. Safely unwrap the optional first by using things like `guard let`, `if let`, `guard let as?`, `if let as?`, and optional chaining.
+
+    ### Error Handling:
+    - **Forced-try Expression**:
+        - **Avoid using the forced-try expression**: `try!`
+        
+            **Incorrect**
+            ```swift
+            // This will crash at runtime if there is an error parsing the JSON data!
+            let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments)
+            print(json)
+            ```
+            **Correct**
+            ```swift
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                print(json)
+            } catch {
+                print(error)
+            }
+            ```
 
 ## Resources:
 
 - [Swift.org -  API Design Guidelines](https://swift.org/documentation/api-design-guidelines/)
 - [nshipster.com - Swift Documentation](http://nshipster.com/swift-documentation/)
-- [Futurice - ios-good-practices](https://github.com/futurice/ios-good-practices#coding-style)
+- [Futurice - ios-good-practices](https://github.com/anasamanp/ios-good-practices)
 - [Vokal Engineering - Swift Coding Standards](https://engineering.vokal.io/iOS/CodingStandards/Swift.md.html#declaring-variables)
+- [RW - Swift Style Guide](https://github.com/anasamanp/swift-style-guide)
 
 
     
