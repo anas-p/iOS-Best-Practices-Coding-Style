@@ -1,4 +1,4 @@
-# The Swift Coding Style guide for NFNLabs
+# The Swift Coding Style guide
 ## Fundamentals:
 - **Clarity at the point of use** is most important goal. Entities such as methods and properties are declared only once but used repeatedly.
 - **Write a documentation comment** for every declaration. Insights gained by writing documentation can have a profound impact on your design, so don’t put it off.
