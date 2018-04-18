@@ -24,10 +24,16 @@
     **Incorrect**
     ```swift
     var string = "Hello" 
+    var textField1 = UITextField()
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var image: UIImageView!
     ```
    **Correct**
     ```swift
     var greeting = "Hello"
+    var txtName = UITextField()
+    @IBOutlet weak var lblAge: UILabel!
+    @IBOutlet weak var imgProfile: UIImageView!
     ```
 ## Conventions:
 - **Follow case conventions**. Names of types and protocols are `UpperCamelCase`. Everything else is `lowerCamelCase`.
@@ -133,6 +139,15 @@ extension SomeOtherClass: UIViewController {
     }
 }
 ```
+
+
+## Resources:
+
+- [Swift.org -  API Design Guidelines](https://swift.org/documentation/api-design-guidelines/)
+- [nshipster.com - Swift Documentation](http://nshipster.com/swift-documentation/)
+- [Futurice - ios-good-practices](https://github.com/futurice/ios-good-practices#coding-style)
+- [Vokal Engineering - Swift Coding Standards](https://engineering.vokal.io/iOS/CodingStandards/Swift.md.html#declaring-variables)
+
 
     
     
