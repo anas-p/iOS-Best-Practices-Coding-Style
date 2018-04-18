@@ -463,6 +463,59 @@ extension SomeOtherClass: UIViewController {
             ```swift
             let doubled = [2, 3, 4].map { $0 * 2 }
             ```
+            
+    ### Constants
+    - Prefer declaring constants outside the scope of a class to give them static storage.
+    - When creating a shared constants file (ex. Constants.swift), use `struct`s to group related constants together. The name of the `struct` should be singular, and each field should be written using camelCase.
+    - Be wary of large constants files as they can become unmanageable over time. Refactor related parts of the main constants file into separate files for that situation.
+        ```swift
+        struct SegueIdentifier {
+            static let onboarding = "OnboardingSegue"
+            static let login = "LoginSegue"
+            static let logout = "LogoutSegue"
+        }
+
+        struct StoryboardIdentifier {
+            static let main = "Main"
+            static let onboarding = "Onboarding"
+            static let settings = "Settings"
+        }
+
+        print(SegueIdentifier.login) // "LoginSegue"
+        ```
+    - Where appropriate, constants can also be grouped using an `enum` with a `rawValue` type that is relevant to the type you need to work with
+        ```swift
+        enum UserJSONKeys: String {
+            case username
+            case email
+            case role
+            // Explicitly defined rawValue
+            case identifier = "id"
+            ...
+        }
+
+        print(UserJSONKeys.username.rawValue) // "username"
+        print(UserJSONKeys.identifier.rawValue) // "id"
+
+        guard let url = URL(string: "http://www.example.com") else {
+            return
+        }
+
+        let mutableURLRequest = NSMutableURLRequest(url: url)
+        mutableURLRequest.HTTPMethod = HTTPMethods.POST.rawValue
+        print(mutableURLRequest.httpMethod) // "POST"
+        ```
+    ### Classes vs Structs
+    - Most of your custom data types should be classes.
+    - Some situations where you may want to use `struct`s:
+        - When creating simple, lightweight data types.
+        - When creating types that are composed of other value types.
+        - When you don't need inheritance.
+    - Refer to the [Swift Programming Language Guidlines](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/ClassesAndStructures.html#//apple_ref/doc/uid/TP40014097-CH13-ID82) for detailed info on this topic.
+    
+    ### Tips & Tricks
+    - To align code in Xcode, select the block of code you want to Align and then press `ctrl` + `i`.
+    
     
     
 ## Resources:
@@ -472,7 +525,8 @@ extension SomeOtherClass: UIViewController {
 - [Futurice - ios-good-practices](https://github.com/anasamanp/ios-good-practices)
 - [Vokal Engineering - Swift Coding Standards](https://engineering.vokal.io/iOS/CodingStandards/Swift.md.html#declaring-variables)
 - [RW - Swift Style Guide](https://github.com/anasamanp/swift-style-guide)
+- [The Swift Programming Language](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html)
 
 
     
-    
+  
