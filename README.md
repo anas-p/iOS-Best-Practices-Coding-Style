@@ -185,7 +185,76 @@ extension SomeOtherClass: UIViewController {
                 print(error)
             }
             ```
+    - **Let vs. Var**
+        - Whenever possible use let instead of var.
+        - Declare properties of an **object** or **struct** that shouldn't change over its lifetime with `let`.
+    - **Access Control**
+        - Prefer `private` properties and methods whenever possible to encapsulate and limit access to internal object state.
+        - For `private` declarations at the top level of a file that are outside of a type, explicitly specify the declaration as `fileprivate`. This is functionally the same as marking these declarations private, but clarifies the scope:
+            **Incorrect**
+            ```swift
+            import Foundation
 
+            // Top level declaration
+            private let foo = "bar"
+
+            struct Baz {
+            ...
+            ```
+            **Correct**
+            ```swift
+            import Foundation
+
+            // Top level declaration
+            fileprivate let foo = "bar"
+
+            struct Baz {
+            ...
+            ```
+        - If you need to expose functionality to other modules, prefer `public` classes and class members whenever possible to ensure functionality is not accidentally overridden. Better to expose the class to `open` for subclassing when needed.
+    - **Spacing**
+        - Open curly braces on the same line as the statement and close on a new line.
+        - Put `else` statements on the same line as the closing brace of the previous `if` block.
+        - Make all colons left-hugging (no space before but a space after) except when used with the ternary operator (a space both before and after).
+        
+            **Incorrect**
+            ```swift
+            class SomeClass : SomeSuperClass
+            {
+                private let someString:String
+
+                func someFunction(someParam :Int)
+                {
+                    let dictionaryLiteral : [String : AnyObject] = ["foo" : "bar"]
+
+                    let ternary = (someParam > 10) ? "foo": "bar"
+
+                    if someParam > 10 { ... }
+
+                    else {
+                            ...
+                    } } }
+            ```
+            **Correct**
+            ```swift
+            class SomeClass: SomeSuperClass {
+                private let someString: String
+
+                func someFunction(someParam: Int) {
+                    let dictionaryLiteral: [String: AnyObject] = ["foo": "bar"]
+
+                    let ternary = (someParam > 10) ? "foo" : "bar"
+
+                    if someParam > 10 {
+                        ...
+                    } else {
+                        ...
+                    }
+                }
+            }
+            ```
+        
+        
 ## Resources:
 
 - [Swift.org -  API Design Guidelines](https://swift.org/documentation/api-design-guidelines/)
