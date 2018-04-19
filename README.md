@@ -1,6 +1,8 @@
 # The Swift Coding Style guide
 ## Fundamentals:
-- **Clarity at the point of use** is most important goal. Entities such as methods and properties are declared only once but used repeatedly.
+- **[Organize files in Xcode by functionality](https://github.com/anasamanp/iOS-Best-Practices-Coding-Style/blob/master/Organize%20files%20in%20Xcode%20by%20functionality.md)** - Recommended
+- **[Organize files in Xcode by Group](https://github.com/anasamanp/iOS-Best-Practices-Coding-Style/blob/master/Organise%20Xcode%20files.md)**
+- **Clarity at the point of use** is most important goal. Entities such as **methods** and **properties** are declared only once but used repeatedly.
 - **Write a documentation comment** for every declaration. Insights gained by writing documentation can have a profound impact on your design, so don’t put it off.
     - Use Swift’s [dialect of Markdown](https://developer.apple.com/library/content/documentation/Xcode/Reference/xcode_markup_formatting_ref/) for documentation.
     - [Reference for inline documentation](http://nshipster.com/swift-documentation/).
@@ -14,8 +16,6 @@
         - **Focus on the summary**; it’s the most important part. Many excellent documentation comments consist of nothing more than a great summary.
         - **Use a single sentence fragment** if possible, ending with a period. Do not use a complete sentence.
         - **Describe what a function or method does and what it returns**, omitting null effects and Void returns.
-- **[Organize files in Xcode by functionality](https://github.com/anasamanp/iOS-Best-Practices-Coding-Style/blob/master/Organize%20files%20in%20Xcode%20by%20functionality.md)** - Recommended
-- **[Organize files in Xcode by Group](https://github.com/anasamanp/iOS-Best-Practices-Coding-Style/blob/master/Organise%20Xcode%20files.md)**
 
 ## Naming:
 **Promote Clear Usage**
