@@ -1,8 +1,8 @@
 # The Swift Coding Style guide
 
 ## Organize files in Xcode:
-- **[By functionality](https://github.com/anasamanp/iOS-Best-Practices-Coding-Style/blob/master/Organize%20files%20in%20Xcode%20by%20functionality.md)** - Recommended
-- **[By Group](https://github.com/anasamanp/iOS-Best-Practices-Coding-Style/blob/master/Organise%20Xcode%20files.md)**
+- **[by Functionality](https://github.com/anasamanp/iOS-Best-Practices-Coding-Style/blob/master/Organize%20files%20in%20Xcode%20by%20functionality.md)** - Recommended
+- **[by Group](https://github.com/anasamanp/iOS-Best-Practices-Coding-Style/blob/master/Organise%20Xcode%20files.md)**
 
 ## Fundamentals:
 - **Clarity at the point of use** is most important goal. Entities such as **methods** and **properties** are declared only once but used repeatedly.
