@@ -1,5 +1,5 @@
 # Way to Organize Project Files in Xcode
-- Framedation/
+- **Framedation/**
     - Data/
         - DataStack1
         - DataStack2
@@ -9,13 +9,13 @@
         - etc
     - Util/
         - foundation extensions, helper classes
-- Lib/
+- **Lib/**
     - External library 1
     - External library 2
 - Storyboards/
     - Tab1.storyboard
     - Tab2.storyboard
-- UI/
+- **UI/**
     - Tab1 (or Functionality Area 1)/
         - ViewController1
         - ViewController2
@@ -27,12 +27,12 @@
     - Common/
         - SharedUIComponent1
         - SharedUIComponent2
-- Util/
+- **Util/**
     - Extensions of Cocoa classes
     - Colors helper
     - Fonts helper
     - etc
-- Resources/
+- **Resources/**
     - Fonts/
     - Placeholder images (final images go into .XCAssets file)
     - etc
