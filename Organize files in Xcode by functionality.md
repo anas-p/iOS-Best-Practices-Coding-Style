@@ -1,5 +1,6 @@
 # Organized files in Xcode by functionality
 Sample Screenshot:
+
 ![Project Files Sample](https://github.com/anasamanp/iOS-Best-Practices-Coding-Style/blob/master/ProjectFolder.png)
 
 - **Constants.swift** or **Enums.swift**, which contains `enum`s for all static constants used in the app like *Urls*, *UserDefault keys*, *Alert Messages*.
