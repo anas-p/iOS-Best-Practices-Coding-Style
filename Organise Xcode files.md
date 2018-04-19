@@ -1,4 +1,4 @@
-# Way to Organize Project Files in Xcode by Group
+# Organize files in Xcode by Group
 - **Data Manager/**
     - Data/
         - DataStack1
