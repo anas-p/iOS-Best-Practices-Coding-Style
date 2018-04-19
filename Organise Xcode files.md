@@ -1,5 +1,5 @@
 # Way to Organize Project Files in Xcode
-- **Framedation/**
+- **Data Manager/**
     - Data/
         - DataStack1
         - DataStack2
@@ -9,10 +9,10 @@
         - etc
     - Util/
         - foundation extensions, helper classes
-- **Lib/**
+- **Library/**
     - External library 1
     - External library 2
-- Storyboards/
+- **Storyboards/**
     - Tab1.storyboard
     - Tab2.storyboard
 - **UI/**
@@ -27,7 +27,7 @@
     - Common/
         - SharedUIComponent1
         - SharedUIComponent2
-- **Util/**
+- **Utilities/**
     - Extensions of Cocoa classes
     - Colors helper
     - Fonts helper
@@ -38,16 +38,18 @@
     - etc
 
 
-### Framedation
+### Data Manager
 Within Framedation, there are:
 - separate directories for each kind of data being managed (usually a DataManager singleton and a collection of object classes).
 - A directory for all the networking code.
 - A directory for any extensions or other backend/data helper classes.
+- API Request classes
+- Core data classes
 
 ### Storyboards
 - Simple flat directory for the collection of storyboards. Makes them easy to find.
 
-### Lib
+### Library
 - Each external library gets a folder here. A lot of the time it's easier to include this way (especially if it requires changes) than doing a link with CocoaPods or Carthage.
 
 ### UI
