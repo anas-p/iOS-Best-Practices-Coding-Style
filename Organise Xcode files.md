@@ -44,7 +44,6 @@
 
 
 ### Data Manager
-Within Framedation, there are:
 - separate directories for each kind of data being managed (usually a DataManager singleton and a collection of object classes).
 - A directory for all the networking code.
 - A directory for any extensions or other backend/data helper classes.
