@@ -9,12 +9,15 @@
         - etc
     - Util/
         - foundation extensions, helper classes
+        
 - **Library/**
     - External library 1
     - External library 2
+    
 - **Storyboards/**
     - Tab1.storyboard
     - Tab2.storyboard
+    
 - **UI/**
     - Tab1 (or Functionality Area 1)/
         - ViewController1
@@ -27,11 +30,13 @@
     - Common/
         - SharedUIComponent1
         - SharedUIComponent2
+        
 - **Utilities/**
     - Extensions of Cocoa classes
     - Colors helper
     - Fonts helper
     - etc
+    
 - **Resources/**
     - Fonts/
     - Placeholder images (final images go into .XCAssets file)
