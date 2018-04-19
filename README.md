@@ -13,8 +13,9 @@
         ```
         - **Focus on the summary**; it’s the most important part. Many excellent documentation comments consist of nothing more than a great summary.
         - **Use a single sentence fragment** if possible, ending with a period. Do not use a complete sentence.
-        - **Describe what a function or method does and what it returns**, omitting null effects and Void returns:
-        
+        - **Describe what a function or method does and what it returns**, omitting null effects and Void returns.
+- **[Way to organize Swift project files in Xcode](https://github.com/anasamanp/iOS-Best-Practices-Coding-Style/blob/master/Organise%20file%20structure)**
+
 ## Naming:
 **Promote Clear Usage**
 - **Include all the words needed to avoid ambiguity** for a person reading code where the name is used.
