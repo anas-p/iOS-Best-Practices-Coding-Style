@@ -99,6 +99,7 @@ class MyViewcontroller : UIViewController{
     
     //MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var btnSubmit: UIButton!
     
     // Custom initializers go here
     private let fooStringConstant = "FooConstant"
@@ -116,6 +117,12 @@ class MyViewcontroller : UIViewController{
     }
 
     // MARK: User Interaction - Actions & Targets
+    
+    //Add OnClick as prefix along with same outlet name for button actions
+    @IBAction func btnSubmitOnClick(_ sender: UIButton) {
+        // ...
+    }
+    
     func foobarButtonTapped() {
         // ...
     }
