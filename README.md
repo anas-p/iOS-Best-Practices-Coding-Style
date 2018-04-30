@@ -155,6 +155,16 @@ extension SomeOtherClass: UIViewController {
 }
 ```
 
+**Sample markup description for documentation:**
+
+Markup for Swift
+
+![Markup for Swift symbols](https://github.com/anasamanp/iOS-Best-Practices-Coding-Style/blob/master/MFR_symbol_markup_eg_2x.png)
+
+The Quick Help shown the above markup description
+
+![Custom Quick Help](https://github.com/anasamanp/iOS-Best-Practices-Coding-Style/blob/master/MFR_quickhelp_eg_2x.png)
+
 # Must Follow:
 ## 1. Native Swift Types 
 - Use Swift types whenever possible (Array, Dictionary, Set, String, etc.) as opposed to the NS* types from Objective-C
