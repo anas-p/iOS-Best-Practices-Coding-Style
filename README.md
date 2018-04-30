@@ -79,9 +79,6 @@
 Using `MARK:` comment is a great way to group your methods, especially in view controllers.
 
 ```swift
-/**
-Documentation for the class/file
-*/
 
 import SomeExternalFramework
 
@@ -91,6 +88,10 @@ import SomeExternalFramework
 protocol ProtocolNameDelegate {
     func foo(param1: String, param2: Bool)
 }
+
+/**
+Documentation for the class/file
+*/
 
 class MyViewcontroller : UIViewController{
 
